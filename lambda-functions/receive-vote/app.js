@@ -4,7 +4,7 @@ var dynamodb = new AWS.DynamoDB();
 
 exports.handler = function(event, context) {
   var twilio = require('twilio');
-  var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10', region: 'us-west-2'});
+  var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10', region: 'us-east-1'});
 
   /* Make sure we have a valid vote (one of [RED, GREEN, BLUE]) */
   console.log(event);
@@ -32,7 +32,9 @@ exports.handler = function(event, context) {
       }
     });
   } else {
-    console.log("Invalid vote received (%s)", votedFor);
-    context.fail("Invalid vote received");
+	var resp = new twilio.TwimlResponse();
+    resp.message(votedFor + " is not a valid option. Please vote for RED, GREEN or BLUE.");
+    context.done(null, [resp.toString()]);
+    console.log("Invalid vote received %s", votedFor);
   }
 }

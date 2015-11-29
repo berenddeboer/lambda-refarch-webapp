@@ -10,25 +10,25 @@
         "Type": "String",
         "MinLength": "3",
         "MaxLength": "63",
-        "Default": "myvoteappbucket"
+        "Default": "xilution-myvoteapp-web"
     },
 
     "LambdaS3Bucket" : {
         "Description" : "Name of S3 bucket where static site and Lambda function packages are stored.",
         "Type" : "String",
-        "Default" : "awslambda-reference-architectures"
+        "Default" : "xilution-myvoteapp-staging"
     },
 
     "LambdaReceiveS3Key" : {
         "Description" : "Name of S3 key for ZIP with Lambda function package that receives votes.",
         "Type" : "String",
-        "Default" : "web-app/receive.zip"
+        "Default" : "receive-vote.zip"
     },
 
     "LambdaAggregateS3Key" : {
         "Description" : "Name of S3 key for ZIP with Lambda function package that aggregates votes.",
         "Type" : "String",
-        "Default" : "web-app/aggregate.zip"
+        "Default" : "aggregate-votes.zip"
     },
 
     "VotesTableRead": {
@@ -135,7 +135,8 @@
           "IndexDocument": "index.html",
           "ErrorDocument": "error.html"
         }
-      }
+      },
+      "DeletionPolicy" : "Delete"
     },
 
     "BucketPolicy" : {
@@ -248,7 +249,11 @@
                     "dynamodb:GetItem",
                     "dynamodb:PutItem",
                     "dynamodb:Query",
-                    "dynamodb:UpdateItem"
+                    "dynamodb:UpdateItem",
+                	"dynamodb:GetRecords",
+                	"dynamodb:GetShardIterator",
+                	"dynamodb:DescribeStream",
+                	"dynamodb:ListStreams"
                   ],
                   "Resource": "*"
                 }
