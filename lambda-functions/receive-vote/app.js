@@ -1,6 +1,6 @@
 console.log('Loading event');
 var AWS = require('aws-sdk');
-var dynamodb = new AWS.DynamoDB();
+AWS.config.update({region: "us-east-1"});
 
 exports.handler = function(event, context) {
   var twilio = require('twilio');
@@ -11,7 +11,7 @@ exports.handler = function(event, context) {
   var votedFor = event['Body'].toUpperCase().trim();
   if (['RED', 'GREEN', 'BLUE'].indexOf(votedFor) >= 0) {
     /* Add randomness to our value to help spread across partitions */
-    votedForHash = votedFor + "." + Math.floor((Math.random() * 10) + 1).toString();
+    var votedForHash = votedFor + "." + Math.floor((Math.random() * 10) + 1).toString();
     /* ...updateItem into our DynamoDB database */
     var tableName = 'VoteApp';
     dynamodb.updateItem({
@@ -32,9 +32,10 @@ exports.handler = function(event, context) {
       }
     });
   } else {
-	var resp = new twilio.TwimlResponse();
+  var resp = new twilio.TwimlResponse();
     resp.message(votedFor + " is not a valid option. Please vote for RED, GREEN or BLUE.");
     context.done(null, [resp.toString()]);
     console.log("Invalid vote received %s", votedFor);
   }
-}
+
+};

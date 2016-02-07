@@ -14,7 +14,7 @@ limitations under the License. */
 // Region and IdentityPoolId should be set to your own values
 AWS.config.region = 'us-east-1'; // Region
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'us-east-1:8da85f21-3594-4291-ad7d-04782bd20d1e',
+    IdentityPoolId: 'us-east-1:72cde50b-73fc-4317-99f5-fedaab3fb3aa',
 });
 
 var dynamodb = new AWS.DynamoDB();

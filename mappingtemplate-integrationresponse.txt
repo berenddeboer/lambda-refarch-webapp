@@ -1,0 +1,5 @@
+#set($inputRoot = $input.path('$'))
+#set($rawText = $input.json('$[0]'))
+#set($start = 1)
+#set($end = $rawText.length() - 1)
+$rawText.substring($start, $end).replace('\"', '"')

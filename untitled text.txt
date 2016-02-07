@@ -1,9 +1,0 @@
-aws cloudformation create-stack --stack-name lambda-refarch-webapp --template-body file:///Users/tbrunia/Documents/git/lambda-refarch-webapp/lambda_webapp.template --capabilities CAPABILITY_IAM
-
-aws cloudformation delete-stack --stack-name lambda-refarch-webapp
-
-Automate - zip and send of lambda code to S3
-
-Automate the upload of the web resources.
-
-What development environments are available for node.js? IntelliJ?
