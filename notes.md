@@ -34,7 +34,7 @@ Updated the refresh.js file with the new Identity Pool ID.
 
 Manually copied error.html, index.html, narrow.css, refresh.js and vote.css in to the xilution-myvoteapp-web bucket.
 
-###
+### DynamoDB Trigger
 
 Through the AWS DynamoDB Console, configure the Vote DynamoDB table to trigger the Aggregate Lambda function.
 
