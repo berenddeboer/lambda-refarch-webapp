@@ -10,25 +10,25 @@
         "Type": "String",
         "MinLength": "3",
         "MaxLength": "63",
-        "Default": "xilution-myvoteapp-web"
+        "Default": "berendvoteappbucket"
     },
 
     "LambdaS3Bucket" : {
         "Description" : "Name of S3 bucket where static site and Lambda function packages are stored.",
         "Type" : "String",
-        "Default" : "xilution-myvoteapp-staging"
+        "Default" : "berend-awslambda-reference-architectures"
     },
 
     "LambdaReceiveS3Key" : {
         "Description" : "Name of S3 key for ZIP with Lambda function package that receives votes.",
         "Type" : "String",
-        "Default" : "receive-vote.zip"
+        "Default" : "web-app/receive.zip"
     },
 
     "LambdaAggregateS3Key" : {
         "Description" : "Name of S3 key for ZIP with Lambda function package that aggregates votes.",
         "Type" : "String",
-        "Default" : "aggregate-votes.zip"
+        "Default" : "web-app/aggregate.zip"
     },
 
     "VotesTableRead": {

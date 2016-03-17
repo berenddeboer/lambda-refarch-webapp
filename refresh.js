@@ -1,20 +1,20 @@
 /* Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
-Licensed under the Apache License, Version 2.0 (the "License"). You may not use 
-this file except in compliance with the License. A copy of the License is 
+Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+this file except in compliance with the License. A copy of the License is
 located at
 
 http://aws.amazon.com/apache2.0/
 
-or in the "license" file accompanying this file. This file is distributed on an 
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
-implied. See the License for the specific language governing permissions and 
+or in the "license" file accompanying this file. This file is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing permissions and
 limitations under the License. */
 
 // Region and IdentityPoolId should be set to your own values
-AWS.config.region = 'us-east-1'; // Region
+AWS.config.region = 'ap-northeast-1'; // Region
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'us-east-1:72cde50b-73fc-4317-99f5-fedaab3fb3aa',
+    IdentityPoolId: 'ap-northeast-1:7b8c34d3-c98b-417f-8053-3c324002acfb',
 });
 
 var dynamodb = new AWS.DynamoDB();
